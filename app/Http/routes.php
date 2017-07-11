@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/upload');
+})->name('home');
+
+Route::get('/upload', function(){
+    return view('upload');
 });
+
+Route::post('/upload/file', 'UploadController@uploadFile')->name('upload.file');
+Route::post('/upload/result', 'UploadController@showResult')->name('show.result');
